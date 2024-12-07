@@ -5,6 +5,7 @@ import Home from "@/views/Home";
 import RoutingErrorsPage from "@/components/custom/RoutingErrorsPage";
 import ProductsList from "@/components/custom/ProductsList";
 import ProductDetail from "@/components/custom/ProductDetail";
+import CategoryPage from "@/views/CategoryPage";
 // import SignUp from "@/views/SignUp";
 // import SignIn from "@/views/SignIn";
 // import ForgetPassword from "@/views/ForgetPassword";
@@ -26,9 +27,16 @@ const routes = createBrowserRouter([
       },
 
       {
-        path: paths.productDetail,
+        path: "/product/:id",
         element: <ProductDetail />,
       },
+
+      {
+        path: "/products/category/:category", // Dynamic category page
+        element: <CategoryPage />, // You will render products of a specific category here
+      },
+      
+
       //    include more nested routes as written below
       //   {
       //     path: paths.signUp,

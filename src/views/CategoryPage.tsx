@@ -1,4 +1,5 @@
-import { useGetProductsQuery } from "@/services/productsApiSlice";
+import { useParams } from "react-router-dom";
+import { useGetProductsByCategoryQuery } from "@/services/productsApiSlice";
 import { Link } from "react-router-dom";
 import {
   Popover,
@@ -7,16 +8,25 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 import { PopoverArrow } from "@radix-ui/react-popover";
-import NavBar from "./NavBar";
 
-const ProductsList = () => {
-  const { data: products, error, isLoading } = useGetProductsQuery();
+const CategoryPage = () => {
+  //   const location = window.location.pathname;
+  //   const currentPath = location.split("/").pop();
+  //   console.log("currentPath====>>>>", currentPath);
+  const { category } = useParams<{ category: string }>(); // Get the products category from the URL
+  const productsCategory = String(category); // Convert category to a string
+
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useGetProductsByCategoryQuery(productsCategory);
   const [openPopover, setOpenPopover] = useState<number | null>(null);
 
   if (isLoading) {
     return (
       <div className="h-screen flex justify-center items-center text-3xl">
-        Loading products...
+        Loading {category} products...
       </div>
     );
   }
@@ -24,17 +34,15 @@ const ProductsList = () => {
   if (error) {
     return (
       <div className="h-screen flex justify-center items-center text-red-500 text-3xl">
-        Error: Something went wrong loading products!
+        Error: Something went wrong loading {productsCategory} products!
       </div>
     );
   }
 
   return (
     <>
-      <NavBar />
-
-      <h1 className="text-4xl text-center font-bold pb-8 pt-20 capitalize">all products list</h1>
-      <ul className="grid grid-cols-5 gap-4 p-4">
+      <h1 className="text-4xl text-center font-bold py-10 capitalize">{productsCategory} products list</h1>
+      <ul className="grid grid-cols-5 gap-4 px-4">
         {products?.map((product) => (
           <li
             key={product.id}
@@ -116,4 +124,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default CategoryPage;

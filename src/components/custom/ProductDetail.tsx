@@ -24,7 +24,7 @@ const ProductDetail = () => {
   if (isLoading) {
     return (
       <div className="h-screen flex justify-center items-center text-3xl">
-        Loading product...
+        Loading product detail...
       </div>
     );
   }
@@ -32,7 +32,7 @@ const ProductDetail = () => {
   if (error) {
     return (
       <div className="h-screen flex justify-center items-center text-red-500 text-3xl">
-        Error: Something went wrong!
+        Error: Something went wrong loading product detail!
       </div>
     );
   }
@@ -43,9 +43,9 @@ const ProductDetail = () => {
         <img
           src={product?.image}
           alt={product?.title}
-          className="aspect-[2/1] object-contain px-4"
+          className="aspect-[2/1] object-contain"
         />
-        <div className="flex flex-col justify-center gap-4 px-4">
+        <div className="flex flex-col justify-center gap-4">
           <span>
             <strong>Title: </strong>
             {product?.title}
