@@ -3,12 +3,11 @@ import { useGetProductByIdQuery } from "@/services/productsApiSlice";
 import { useAppDispatch } from "@/hooks/hooks";
 import { addToCart } from "@/features/cart/cartSlice";
 import { Product } from "@/interfaces/interface";
-import Cart from "./Cart";
 
 // import LoadingSpinner from '@/components/LoadingSpinner'; // Custom loading spinner component
 // import ErrorComponent from '@/components/ErrorComponent'; // Custom error component
 
-const ProductDetail = () => {
+const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>(); // Get the product id from the URL
   const productId = Number(id); // Convert id to a number
 
@@ -39,7 +38,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center p-4">
+      <div className="flex items-center justify-center pb-8 pt-20 px-4">
         <img
           src={product?.image}
           alt={product?.title}
@@ -79,9 +78,8 @@ const ProductDetail = () => {
           </span>
         </div>
       </div>
-      <Cart />
     </>
   );
 };
 
-export default ProductDetail;
+export default ProductDetailPage;

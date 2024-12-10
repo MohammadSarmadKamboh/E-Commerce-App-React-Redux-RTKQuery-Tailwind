@@ -7,9 +7,8 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 import { PopoverArrow } from "@radix-ui/react-popover";
-import NavBar from "./NavBar";
 
-const ProductsList = () => {
+const ProductsListPage = () => {
   const { data: products, error, isLoading } = useGetProductsQuery();
   const [openPopover, setOpenPopover] = useState<number | null>(null);
 
@@ -31,9 +30,9 @@ const ProductsList = () => {
 
   return (
     <>
-      <NavBar />
-
-      <h1 className="text-4xl text-center font-bold pb-8 pt-20 capitalize">all products list</h1>
+      <h1 className="text-4xl text-center font-bold pb-8 pt-20 capitalize">
+        all products list
+      </h1>
       <ul className="grid grid-cols-5 gap-4 p-4">
         {products?.map((product) => (
           <li
@@ -116,4 +115,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default ProductsListPage;

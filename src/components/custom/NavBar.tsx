@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png";
-// import { paths } from "@/routes/paths";
+import { paths } from "@/routes/paths";
 import { useGetProductCategoriesQuery } from "@/services/productsApiSlice";
 import {
   Link,
@@ -17,7 +17,7 @@ const NavBar = () => {
   //     navigate(`/${abc}`)
   // }
   return (
-    <nav className="flex items-center justify-between border-y-2 border-gray-200 py-2 px-4 hover:shadow-lg">
+    <nav className="fixed z-50 w-full bg-white flex items-center justify-between border-y-2 border-gray-200 py-2 px-4 hover:shadow-lg">
       <Link
         to="/"
         className="capitalize flex gap-2 font-semibold hover:text-[#40bfff]">
@@ -30,6 +30,11 @@ const NavBar = () => {
       </Link>
 
       <ul className="flex gap-10">
+        <li className="font-semibold hover:text-[#40bfff]">
+          <Link to={paths.productsFromApi} className="capitalize">
+            all products
+          </Link>
+        </li>
         {categories?.map((category, index) => (
           <li key={index} className=" font-semibold hover:text-[#40bfff] ">
             <Link to={`/products/category/${category}`} className="capitalize">

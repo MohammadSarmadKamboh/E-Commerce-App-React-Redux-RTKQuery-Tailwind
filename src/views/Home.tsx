@@ -1,13 +1,10 @@
-// import ProductsList from "@/components/custom/ProductsList";
-
 import Cart from "@/components/custom/Cart";
 
 const Home = () => {
   return (
     <>
+      <Cart />
       Home
-      {/* <ProductsList /> */}
-      <Cart/>
     </>
   );
 };

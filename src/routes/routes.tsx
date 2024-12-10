@@ -3,9 +3,9 @@ import { paths } from "./paths";
 import DefaultLayout from "@/layouts/DefaultLayout";
 import Home from "@/views/Home";
 import RoutingErrorsPage from "@/components/custom/RoutingErrorsPage";
-import ProductsList from "@/components/custom/ProductsList";
-import ProductDetail from "@/components/custom/ProductDetail";
-import CategoryPage from "@/views/CategoryPage";
+import ProductsListPage from "@/components/custom/ProductsListPage";
+import ProductDetailPage from "@/components/custom/ProductDetailPage";
+import ProductsCategoryPage from "@/components/custom/ProductsCategoryPage";
 // import SignUp from "@/views/SignUp";
 // import SignIn from "@/views/SignIn";
 // import ForgetPassword from "@/views/ForgetPassword";
@@ -23,17 +23,17 @@ const routes = createBrowserRouter([
 
       {
         path: paths.productsFromApi,
-        element: <ProductsList />,
+        element: <ProductsListPage />,
       },
 
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        element: <ProductDetailPage />,
       },
 
       {
         path: "/products/category/:category", // Dynamic category page
-        element: <CategoryPage />, // You will render products of a specific category here
+        element: <ProductsCategoryPage />, // You will render products of a specific category here
       },
       
 

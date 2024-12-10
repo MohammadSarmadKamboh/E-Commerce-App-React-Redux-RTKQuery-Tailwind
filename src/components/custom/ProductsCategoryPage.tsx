@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { PopoverArrow } from "@radix-ui/react-popover";
 
-const CategoryPage = () => {
+const ProductsCategoryPage = () => {
   //   const location = window.location.pathname;
   //   const currentPath = location.split("/").pop();
   //   console.log("currentPath====>>>>", currentPath);
@@ -41,8 +41,10 @@ const CategoryPage = () => {
 
   return (
     <>
-      <h1 className="text-4xl text-center font-bold py-10 capitalize">{productsCategory} products list</h1>
-      <ul className="grid grid-cols-5 gap-4 px-4">
+      <h1 className="text-4xl text-center font-bold pb-8 pt-20 capitalize">
+        {productsCategory} products list
+      </h1>
+      <ul className="grid grid-cols-5 gap-4 p-4">
         {products?.map((product) => (
           <li
             key={product.id}
@@ -124,4 +126,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default ProductsCategoryPage;
